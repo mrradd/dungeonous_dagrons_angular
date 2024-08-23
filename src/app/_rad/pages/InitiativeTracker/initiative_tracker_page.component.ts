@@ -37,17 +37,13 @@ export class InitiativeTrackerPage implements OnInit, OnDestroy {
   /** 
    * Add a character to the initiative tracker as the last row. 
    **/
-  addCharacter() {
+  addCharacterAndUpdate() {
     console.log("Adding character");
 
     this.IdCounter++;
+    const newCharacters: Character[] = [...this.characters || {}];
+    newCharacters.push({ id: this.IdCounter, name: `New Character - ${this.IdCounter}` } as Character);
 
-    if (this.characters) {
-      this.characters = [...this.characters, { id: this.IdCounter, name: `derp - ${this.IdCounter}` } as Character];
-    }
-    else {
-      console.log("this.characters is undefined");
-      this.characters = [{ id: this.IdCounter, name: `derp - ${this.IdCounter}` } as Character];
-    }
+    this._appStateService.updateCharacters(newCharacters);
   }
 }

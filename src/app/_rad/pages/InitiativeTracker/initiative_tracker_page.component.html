@@ -2,8 +2,8 @@
 @defer (on viewport) {
   <div class="initiative_tracker_container">
     <div class="tracker_button_container">
-      <rad-button buttonLabel="Add Character" [onClickCallback]="addCharacter.bind(this)"></rad-button>
-      <rad-button buttonLabel="Remove Character" [onClickCallback]="addCharacter.bind(this)"></rad-button>
+      <rad-button buttonLabel="Add Character" [onClickCallback]="addCharacterAndUpdate.bind(this)"></rad-button>
+      <rad-button buttonLabel="Remove Character" [onClickCallback]="addCharacterAndUpdate.bind(this)"></rad-button>
     </div>
     <div class="character_profile_list">
       @for (c of characters; track c.id){
